@@ -173,3 +173,6 @@ Point.prototype.r  = function () {
     this.y * this.y                 //...is invoked
   );
 };
+
+// Now the Point object p (and all future Point objects) inherits the method r()
+p.r()                              // => 1.414...
