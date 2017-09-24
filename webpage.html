@@ -5,9 +5,17 @@
   <script src="library.js">
   <!--include a library of JavaScript code -->
   </script>
+
+<!-- Event Handling Here -->
+<script src="debug.js"></script>
+<script src="hide.js"></script>
 </head>
 
 <body>
+  Hello
+  <button onclick="hide(this,true); debug('hide button 1');">Hide1</button>
+  <button onclick="hide(this); debug('hide button 2');">Hide2</button>
+  World
   <p>This is a paragraph of HTML</p>
   <script>
   // And this is some client-side JavaScript code
