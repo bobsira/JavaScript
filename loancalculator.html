@@ -146,12 +146,55 @@ window.onload = function() {
     document.getElementById("apr").value = localStorage.loan_apr;
     document.getElementById("years").value = localStorage.loan_years;
     document.getElementById("zipcode").value = localStorage.loan_zipcode;
-
-    // Pass the user's input to a server-side script which can (in theory) return
-    // a list of links to local lenders interested in making loans. This example
-    // does not actually include a working implementation of such a lender-finding
-    // service. But if the service existed, this function would work with it.
   }
+};
+
+// Pass the user's input to a server-side script which can (in theory) return
+// a list of links to local lenders interested in making loans. This example
+// does not actually include a working implementation of such a lender-finding
+// service. But if the service existed, this function would work with it.
+function getLenders(amount,apr,years,zipcode) {
+  // If the browser does not support the XMLHttpRequest object, do nothing
+  if (!window.XMLHttpRequest) {
+    return;
+  }
+  // Find the element to display the list of lenders in
+  var ad = document.getElementById("lenders");
+  if(!ad) return;                              // Quit if no spot for output
+
+  // Encode the user's input as query parameter in a URL
+  var url = "getLenders.php" +                 // Service url plus
+  "?amt=" + encodeURIComponent(amount) +       // user data in query string
+  "&apr=" + encodeURIComponent(apr) +
+  "&yrs=" + encodeURIComponent(years) +
+  "&zip=" + encodeURIComponent(zipcode);
+
+  // Fetch the contents of that URL using the XMLHttpRequest object
+  var req = new XMLHttpRequest();             // Begin a new request
+  req.open("GET",url);                        // An HTTP GET request for the url
+  req.send(null);                             // Send the request with no body
+
+  // Before returning, register an event handler for the function that will be called
+  // at some later time when the HTTP server's response arrives.This kind of
+  // asynchronous programming is very common in client-side JavaScript.
+  req.onreadystatechange = function(){
+    if (req.readyState == 4 && req.status == 200) {
+      // If we get here, we got a complete valid HTTP response
+      var response = req.responseText;          // HTTP response as a string
+      var lenders = JSON.parse(response);       // Parse it to a JS array
+
+      // Convert the array of lender object to a string of HTML
+      var list="";
+      for (var i = 0; i < lenders.length; i++) {
+        list += "<li><a href=' " + lenders[i].url + " '>" +
+        lenders[i].name + "</a>";
+      }
+
+      // Display the HTML in the element from above
+      ad.innerHTML = "<ul>" + list + "</ul>";
+    }
+  }
+
 }
 </script>
 </body>
