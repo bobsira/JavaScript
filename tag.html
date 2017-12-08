@@ -3,6 +3,11 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <script>
+    function myFunction() {
+      document.getElementById("head").innerHTML = "Paragraph changed";
+    }
+    </script>
   </head>
   <body>
     <h2>JavaScript in Body</h2>
@@ -11,5 +16,13 @@
     <script>
     document.getElementById("demo").innerHTML = "My First JavaScript";
     </script>
+
+    <p id="head">A Paragraph.</p>
+    <button
+    type="button"
+    onclick="myFunction()">
+    Try it
+  </button>
+
   </body>
 </html>
