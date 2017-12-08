@@ -3,25 +3,26 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <script src="https://www.w3schools.com/js/myScript.js"></script>
     <script src="myScript.js"></script>
     <script>
-    function myFunction() {
+    function myFunction0() {
       document.getElementById("head").innerHTML = "Paragraph changed";
     }
     </script>
   </head>
   <body>
     <h2>JavaScript in Body</h2>
-    <p id="demo"></p>
+    <p id="demo1"></p>
 
     <script>
-    document.getElementById("demo").innerHTML = "My First JavaScript";
+    document.getElementById("demo1").innerHTML = "My First JavaScript";
     </script>
 
     <p id="head">A Paragraph.</p>
     <button
     type="button"
-    onclick="myFunction()">
+    onclick="myFunction0()">
     Try it
   </button>
 
@@ -30,6 +31,13 @@
   type="button"
   onclick="myFunction1()">
   Try it
+</button>
+
+<p id="demo">A Paragraph.</p>
+<button
+type="button"
+onclick="myFunction()">
+Try it
 </button>
 
   </body>
