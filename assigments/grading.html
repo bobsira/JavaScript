@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script>
+    // this is the global variable
+    grade = window.prompt("Please enter the grade: ");
+
+    function checknum(num){
+    if ((num >=0) && (num <=100)){
+      alert("Grades between the required range");
+      return true;
+    }
+    else{
+      alert("Invalid Grades");
+      return false;
+    }
+  }
+
+  function grade_func() {
+    if (checknum(grade)) {
+      if (grade<=100 && grade>=70) {
+        document.write("Your grade is A");
+        //alert("A");
+      }else if (grade<70 && grade>=60) {
+        document.write("Your grade is B");
+      }else if (grade<60 && grade>=50) {
+        document.write("Your grade is C");
+      }else if (grade<50 && grade>=40) {
+        document.write("Your grade is D");
+      }else if (grade<40 && grade>=0) {
+        document.write("Your grade is D");
+      }
+    }
+  }
+
+
+</script>
+  </head>
+  <body onload="grade_func()">
+
+  </body>
+</html>
