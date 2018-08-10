@@ -1,0 +1,35 @@
+Arguments: 
+  /usr/bin/node /usr/share/yarn/bin/yarn.js install
+
+PATH: 
+  /home/bobsira/anaconda3/bin:/home/bobsira/bin:/home/bobsira/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+
+Yarn version: 
+  1.9.2
+
+Node version: 
+  10.8.0
+
+Platform: 
+  linux x64
+
+Trace: 
+  SyntaxError: /home/bobsira/Documents/0a7bed99ba3fb635a620fd7a467dae68-5a69ede9031293854e290fc263158d5331588272/package.json: Unexpected token } in JSON at position 48
+      at JSON.parse (<anonymous>)
+      at /usr/share/yarn/lib/cli.js:1130:59
+      at Generator.next (<anonymous>)
+      at step (/usr/share/yarn/lib/cli.js:92:30)
+      at /usr/share/yarn/lib/cli.js:103:13
+
+npm manifest: 
+  {
+    "dependencies": {
+      "axios": "^0.18.0",
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
