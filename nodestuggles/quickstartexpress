@@ -1,0 +1,13 @@
+1.npm update -g express
+2.npm update -g express-generator
+3.express your_app_name
+
+    // add the following in package.json when working with mongodb
+    "mongodb": "^3.0.5",
+    "monk": "^6.0.5",
+    "jade": "~1.11.0",
+    "morgan": "~1.9.0",
+    "serve-favicon": "~2.4.5"
+
+4.npm install
+5.npm start 
