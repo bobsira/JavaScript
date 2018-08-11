@@ -35,3 +35,29 @@ var breakfastSchema = new Schema( {
     enum : ['Coffee','Tea','Water',]
   }
 });
+
+
+//create an instance of model SomeModel
+var awesome_instance = new SomeModel({
+  name : 'awesome'
+});
+//save the new model instance, passing a callback
+awesome_instance.save(function (err) {
+  if(err) return handleError(err);
+  //saved
+});
+
+SomeModel.create({ name : 'also_awesome' }, function (err,awesome_instance) {
+  if(err) return handleError(err);
+  //saved!
+});
+
+
+//access model field values using dot notation
+console.log(awesome_instance); //should log 'awesome_instance'
+
+//change record by modifying the fields, then calling save().
+awesome_instance.name = "New cool name";
+awesome_instance.save(function (err ) {
+  if(err ) return handleError(err ); // saved
+});
