@@ -93,3 +93,51 @@ Athlete.
   sort({age:-1}).
   select('name age').
   exec(callback); //where callback is the name of our callback function
+
+
+  var mongoose = require('mongoose')
+  , Schema = mongoose.Schema;
+
+  var authorSchema = Schema({
+    name : String,
+    stories : [ {type:Schema.Types.ObjectId, ref : 'Story'}]
+  });
+
+  var storySchema = Schema({
+    author : { type : Schema.Types.ObjectId, ref: 'Author'},
+    title: String
+  });
+
+  var Story = mongoose.model('Story',storySchema);
+  var Author = mongoose.model('Author',authorSchema);
+
+  var bob = new Author({name:'Bob Smith'});
+  bob.save(function (err) {
+    if(err) return handleError(err);
+    //Bob now exists, so lets create a story
+    var story = new Story({
+      title: "Bob is sledding",
+      author : bob._id  //assign the _id from the our author Bob. This ID is created by default
+    });
+
+    story.save(function (error) {
+      if(error) return handleError(error);
+      // Bob now has his story
+    });
+  });
+
+  Story
+    .findOne({title: 'Bob goes sledding'})
+    .populate('author') //This populates the author id with actual author information!
+    .exec(function (err,story) {
+      if(err) return handleError(err);
+      console.log('The author is %s', story.author.name);
+      //prints "The author is Bob Smith"
+    })
+
+    Story
+    .find({author:bob._id})
+    .exec(function (err,stories) {
+      if(err) return handleError(err);
+      //return all stories that have Bob's id as thier author.
+    });
