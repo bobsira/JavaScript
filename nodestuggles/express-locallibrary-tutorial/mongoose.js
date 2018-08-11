@@ -141,3 +141,22 @@ Athlete.
       if(err) return handleError(err);
       //return all stories that have Bob's id as thier author.
     });
+
+    //file: ./models/somemodel.js
+    //require mongoose
+    const mongoose = require('mongoose');
+    //define a schema
+    var schema = mongoose.Schema;
+    var SomeModelSchema = new Schema({
+      a_string : String,
+      a_date : Date,
+    });
+
+    //export function to create "SomeModel" model class
+    module.exports = mongoose.model('SomeModel',SomeModelSchema);
+
+
+    //create a SomeModel model just by requiring the module
+    var SomeModel = require('../models/somemodel');
+    //use the SomeModel object (model) to find all SomeModel records
+    SomeModel.find(callback_function);
