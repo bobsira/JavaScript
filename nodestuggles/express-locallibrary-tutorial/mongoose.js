@@ -21,4 +21,17 @@ var schema = new Schema({
   array: [],
   ofString : [String], //You can also have an array of each of the other types too.
   nested: { stuff : { type: String, lowercase : true, trim : true }}
-})
+});
+
+var breakfastSchema = new Schema( {
+  eggs: {
+    type : Number,
+    min: [6, 'Too few eggs'],
+    max :12
+    required : [true, 'Why no eggs?']
+  },
+  drink: {
+    type : String,
+    enum : ['Coffee','Tea','Water',]
+  }
+});
