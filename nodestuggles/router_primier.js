@@ -18,3 +18,9 @@ module.exports = router;
 var wiki = require('./wiki.js');
 //...
 app.use('/wiki',wiki);
+
+app.get('users/:userId/books/:bookId',function (req,res) {
+  //access userId via : req.params.userId
+  //access bookId via: req.params.bookId
+  res.send(req.params);
+})
