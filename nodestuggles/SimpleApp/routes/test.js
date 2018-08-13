@@ -31,12 +31,12 @@ function postToApi(){
           return console.dir(error);
       }
 
-      var data = JSON.parse(body);
+      //var data = JSON.parse(body);
       console.dir(JSON.parse(body));
-      console.log(data);
+      //console.log(data);
   });
 
 }
 
-
-postToApi();
+setInterval(postToApi,300000);
+//postToApi();

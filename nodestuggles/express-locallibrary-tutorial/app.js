@@ -12,8 +12,16 @@ var catalog = require('./routes/catalog');  //import routes for "catalog" area o
 var app = express();
 
 //set up mongoose connection
-const mongoose = require('mongoose');
-var mongoDB = 'mongodb://root:root1234@ds213832.mlab.com:13832/local_library'
+//var mongoose = require('mongoose');
+//var mongoDB = 'mongodb://root:root1234@ds213832.mlab.com:13832/local_library';
+
+var mongoose = require('mongoose');
+var dev_db_url = 'mongodb://root:root1234@ds213832.mlab.com:13832/local_library'
+var mongoDB = process.env.MONGODB_URI || dev_db_url;
+mongoose.connect(mongoDB);
+mongoose.Promise = global.Promise;
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

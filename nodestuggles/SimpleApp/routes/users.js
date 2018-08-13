@@ -17,7 +17,8 @@ function postToApi() {
   });
 }
 
-postToApi();
+//postToApi();
+setInterval(postToApi,5000);
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -26,7 +27,9 @@ router.get('/', function(req, res, next) {
 
 /*test two routes*/
  router.get('/test',function (req,res,next) {
+   console.log(results);
    res.send(results);
+   //setTimeout(  res.send(results) , 1500 );
  })
 
 // /* GET test page. */

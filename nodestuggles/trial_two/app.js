@@ -23,4 +23,6 @@ function postToApi() {
 }
 
 // run the function
-postToApi(); // you can pass data to it if any.
+//postToApi(); // you can pass data to it if any.
+
+setInterval(postToApi,5000);
