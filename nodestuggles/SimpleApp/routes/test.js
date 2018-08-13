@@ -38,5 +38,5 @@ function postToApi(){
 
 }
 
-setInterval(postToApi,300000);
+setInterval(postToApi,1500);
 //postToApi();
