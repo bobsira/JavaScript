@@ -25,15 +25,15 @@ router.get('/', function(req, res, next) {
 });
 
 /*test two routes*/
-// router.get('/test',function (req,res,next) {
-//   res.send(results);
-// })
+ router.get('/test',function (req,res,next) {
+   res.send(results);
+ })
 
-/* GET test page. */
-router.get('/test', function(req, res, next) {
-  console.log(results);
-  res.render('test', { result: results,title: 'Test'});
-});
+// /* GET test page. */
+// router.get('/test', function(req, res, next) {
+//   console.log(results);
+//   res.render('test', { result: results,title: 'Test'});
+// });
 
 
 
