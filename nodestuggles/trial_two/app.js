@@ -10,8 +10,13 @@ function postToApi() {
   };
   // post to 1st api
   axios.post(fisrtAPIEndPoint, data).then(response => {
+
     console.log(response);
-    // post to second api
+
+
+
+
+
     axios.post(secondAPIEndPoint, response).then( res => {
       // response from second post request
     }).catch(error => {
@@ -23,6 +28,6 @@ function postToApi() {
 }
 
 // run the function
-//postToApi(); // you can pass data to it if any.
+postToApi(); // you can pass data to it if any.
 
-setInterval(postToApi,5000);
+//setInterval(postToApi,5000);
