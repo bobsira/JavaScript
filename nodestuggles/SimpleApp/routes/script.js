@@ -1,4 +1,6 @@
 var Request = require("request");
+var data = "";
+
 function postToApi(){
 
 
@@ -9,9 +11,9 @@ function postToApi(){
 	"secret":"cf43052fa26c422aac813eee7b0e7fcb",
 	"package":{
 		"unique_identifier":"9C4DA30E004B1200",
-		"winddir":"1110716464",
-		"windspeedmph":"808464945",
-		"windgustmph":"0",
+		"winddir":"90",
+		"windspeedmph":"80",
+		"windgustmph":"40",
 		"windgustdir":"0",
 		"windspdmph_avg2m":"0",
 		"winddir_avg2m":"29",
@@ -27,11 +29,13 @@ function postToApi(){
   }, (error, response, body) => {
       if(error) {
           return console.dir(error);
-      }
-      console.dir(JSON.parse(body));
+	  }
+	  data = body;
+	  console.dir(data);
+      console.dir(body);
   });
 
 }
 
-setInterval(postToApi,1500);
-//postToApi();
+//setInterval(postToApi,1500);
+postToApi();
