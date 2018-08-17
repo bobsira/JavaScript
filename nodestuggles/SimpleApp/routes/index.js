@@ -42,7 +42,8 @@ function postToApi(){
 /* GET home page. */
 router.get('/', function(req, res, next) {
   postToApi();
-  res.render('index', { title: 'Posting to API online', results: data });
+  res.render('index', 
+  { title: 'Posting to BRCK BRCK HQ Weather Station', results: data });
   
 });
 
